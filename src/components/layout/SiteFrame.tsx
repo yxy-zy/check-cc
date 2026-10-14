@@ -25,7 +25,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
   const copy = messages[activeLocale];
   const localeItems = Object.entries(localeRoutes).map(([value, route]) => ({
     value: value as LocaleCode,
-    href: route.slug ? `/${route.slug}/` : "/",
+    href: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}${route.slug ? `/${route.slug}/` : "/"}`,
     label: route.label,
     lang: route.lang,
   }));
